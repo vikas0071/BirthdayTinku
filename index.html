@@ -653,6 +653,7 @@ tum ho toh sab thoda achha lagta hai. 💗</p>
       const bytes = new Uint8Array(binary.length);
       for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
       source.src = URL.createObjectURL(new Blob([bytes], { type: 'video/mp4' }));
+      source.closest('video').load();
       delete embeddedVideoData[source.dataset.inlineVideo];
     });
     if (embeddedVideoNode) embeddedVideoNode.remove();
